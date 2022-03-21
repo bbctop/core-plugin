@@ -1,0 +1,8 @@
+{
+    "name": "bbctop/core-plugin",
+    "type": "october-plugin",
+    "description": "Bbctop core function and helper",
+    "require": {
+        "october/system": "^2.1"
+    }
+}
