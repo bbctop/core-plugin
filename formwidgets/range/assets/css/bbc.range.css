@@ -1,0 +1,131 @@
+.bbc-range {
+  width: 100%;
+  position: absolute;
+  top: -8px;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.bbc-range-wrapper {
+  max-width: 300px;
+  position: relative;
+  margin: 15px 10px;
+}
+.bbc-range-wrapper:before, .bbc-range-wrapper:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  top: 0;
+}
+.bbc-range-wrapper:before {
+  background-color: #006df0;
+  left: -4px;
+}
+.bbc-range-wrapper:after {
+  background-color: #aaa;
+  right: -4px;
+}
+.bbc-range-track, .bbc-range-ui {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  height: 8px;
+}
+.bbc-range-track {
+  background-color: #aaa;
+  position: relative;
+}
+.bbc-range-track:hover .bbc-range-dot:before, .bbc-range-track:hover .bbc-range-dot:after {
+  opacity: 1;
+}
+.bbc-range-ui {
+  background-color: #006df0;
+  position: relative;
+}
+.bbc-range-dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.bbc-range-dot:before {
+  content: attr(data-value);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  padding: 1px 5px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-align: center;
+  min-width: 20px;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  color: #fff;
+  margin-bottom: 6px;
+  background-color: rgba(10, 13, 190, 0.9);
+}
+.bbc-range-dot:after {
+  border-top: 4px solid rgba(10, 13, 190, 0.9);
+  border-bottom: 0;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 2px;
+  left: 50%;
+  margin-left: -4px;
+}
+.bbc-range-dot:before, .bbc-range-dot:after {
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease;
+  -o-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+.bbc-range-grid {
+  margin-top: 4px;
+  position: relative;
+  z-index: 0;
+  height: 14px;
+}
+.bbc-range-grid:before, .bbc-range-grid:after {
+  position: absolute;
+  top: 0;
+  display: block;
+  font-size: 12px;
+  min-width: 20px;
+  text-align: center;
+  margin-top: 0;
+}
+.bbc-range-grid:before {
+  content: attr(data-min);
+  left: -10px;
+}
+.bbc-range-grid:after {
+  content: attr(data-max);
+  right: -10px;
+}
+.bbc-range-grid i {
+  float: left;
+  display: block;
+  height: 7px;
+  border-left: 1px solid #ccc;
+}
+.bbc-range-grid i:first-child {
+  border-left: 0;
+}
+/*# sourceMappingURL=bbc.range.css.map */

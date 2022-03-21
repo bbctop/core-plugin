@@ -1,0 +1,34 @@
+<?php
+    $fieldOptions = $field->options();
+?>
+<!-- Balloon selector -->
+<div
+    data-control="balloon-selector"
+    id="<?= $field->getId() ?>"
+    class="control-balloon-selector <?= $this->previewMode || $field->disabled ? 'control-disabled' : '' ?>"
+    <?= $field->getAttributes() ?>>
+    <ul>
+        <?php foreach ($fieldOptions as $value => $text): ?>
+            <?php 
+            if (is_array($text)) {
+                $tooltip = $text[1]; $text = $text[0];
+            } 
+            ?>
+            <li data-value="<?= e($value) ?>" class="<?= $field->isSelected($value) ? 'active' : '' ?>" 
+            <?php if(isset($tooltip) && !empty($tooltip)): ?>data-toggle="tooltip" data-placement="top" data-delay="300" title="<?= e(trans($tooltip)) ?>"<?php endif ?>>
+                <?php if(strpos($text,'icon-') === 0): ?>
+                    <i class="<?= e(trans($text)) ?>"></i>
+                <?php else: ?>
+                    <?= e(trans($text)) ?>
+                <?php endif ?>
+            </li>
+        <?php endforeach ?>
+    </ul>
+
+    <input
+        type="hidden"
+        name="<?= $field->getName() ?>"
+        id="<?= $field->getId() ?>"
+        value="<?= e($field->value) ?>"
+        />
+</div>

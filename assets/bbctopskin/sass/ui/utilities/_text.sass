@@ -1,0 +1,98 @@
+
+
+// Alignment
+
+.text-justify
+  text-align: justify !important
+
+.text-wrap
+  white-space: normal !important
+
+.text-nowrap
+  white-space: nowrap !important
+
+.text-truncate
+  +text-truncate
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints)
+  +media-breakpoint-up($breakpoint)
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints)
+
+    .text#{$infix}-left
+      text-align: left !important
+
+    .text#{$infix}-right
+      text-align: right !important
+
+    .text#{$infix}-center
+      text-align: center !important
+
+// Transformation
+
+.text-lowercase
+  text-transform: lowercase !important
+
+.text-uppercase
+  text-transform: uppercase !important
+
+.text-capitalize
+  text-transform: capitalize !important
+
+.font-italic
+  font-style: italic !important
+
+// Contextual colors
+
+.text-white
+  color: $white !important
+
+.text-muted
+  color: $text-muted !important
+
+.text-black-50
+  color: rgba($black, 0.5) !important
+
+.text-white-50
+  color: rgba($white, 0.5) !important
+
+.text-decoration-none
+  text-decoration: none !important
+
+.text-break
+  word-break: break-word !important
+
+  // Deprecated, but avoids issues with flex containers
+  word-wrap: break-word !important
+
+  // Used instead of `overflow-wrap` for IE & Edge Legacy
+
+// Reset
+
+.text-reset
+  color: inherit !important
+
+@each $color, $value in $theme-colors
+  .label-#{$color}
+    padding: 0 5px
+    background-color: mix(white, $value, 80%)
+    border-radius: 4px
+    color: darken($value, 10%) !important
+    display: inline-block
+    overflow: hidden
+    vertical-align: middle
+    font-size: 12px
+    line-height: 20px
+    .label-num
+      display: block
+      text-align: center
+      float: left
+      margin-right: 4px
+      background-color: $value
+      color: #FFF
+      font-size: 12px
+      min-width: 20px
+      padding: 0 4px
+      border-radius: 3px
+      margin-left: -5px

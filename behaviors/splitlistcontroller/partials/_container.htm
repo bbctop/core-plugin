@@ -1,0 +1,18 @@
+
+ <?php if ($toolbar): ?>
+    <?= $toolbar->render() ?>
+<?php endif ?>
+<div class="list-widget-container">
+    <?php if ($filter): ?>
+        <?= $filter->render() ?>
+    <?php endif ?>
+    <?php if(!empty($list->config->splitLayout)): ?>
+    <div class="split">
+        <div id="split-left" class="split-container control-scrollbar" data-control="scrollbar"><?= $list->render() ?></div>
+        <div id="split-right" class="split-container"><div class="layout control-tabs oc-logo-transparent"></div></div>
+    </div>
+    <?php else: ?>
+    <?= $list->render() ?>
+    <?php endif; ?>
+ </div>
+    

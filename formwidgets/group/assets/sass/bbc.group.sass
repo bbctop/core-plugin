@@ -1,0 +1,46 @@
+@import ../../../../assets/bbctopskin/sass/ui/global
+
+
+.bbc-group
+  border-radius: 4px
+  &-collapse
+    border: 1px solid $input-border
+  &-collapse &-body
+    padding: 15px 20px 0
+    > div:last-child
+      display: none
+  &-collapse &-panel
+    background-color: #fff
+  .collapse
+    display: none
+  &-header
+    padding: 10px 15px
+    border-bottom: 1px solid $input-border
+    background-color: #fafbfd
+    +border-top-radius(4px)
+    a
+      text-decoration: none
+      display: block
+      color: #2A3E51
+      > i
+        display: inline-block
+        margin-right: 4px
+        transition: transform .25s
+        color: $brand-primary
+      &.collapsed
+        > i
+          transform: rotate(-90deg)
+  &-panel
+    +border-bottom-radius(8px)
+    &:first-child
+      border-radius: 4px
+  &-title
+    font-size: 14px
+    margin: 0
+  &-noframe > &-panel > &-body
+    margin-top: -20px
+    position: relative
+    padding: 0
+    top: 20px
+  &-noframe > &-panel
+    background-color: transparent

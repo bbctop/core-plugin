@@ -1,0 +1,204 @@
+[data-default-button-text] {
+  position: relative;
+  z-index: 1300;
+}
+
+.modal-body:before, .modal-body:after {
+  content: " ";
+  display: table;
+}
+.modal-body:after {
+  clear: both;
+}
+
+.navbar.control-toolbar {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.navbar.control-toolbar .toolbar-item {
+  height: inherit;
+}
+.navbar.control-toolbar .toolbar-brand {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 90px;
+  flex: 0 0 90px;
+  max-width: 90px;
+  padding: 0 15px;
+  height: auto;
+}
+
+.layout-mainmenu .navbar ul.mainmenu-items[data-main-menu] {
+  margin-left: 5px;
+}
+
+.brand-image {
+  height: 40px;
+  background-image: url(../img/bbctop-icon.svg);
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  -webkit-transition: background-image 0.35s, -webkit-background-size 0.35s;
+  transition: background-image 0.35s, -webkit-background-size 0.35s;
+  -o-transition: background-image 0.35s, background-size 0.35s;
+  transition: background-image 0.35s, background-size 0.35s;
+  transition: background-image 0.35s, background-size 0.35s, -webkit-background-size 0.35s;
+}
+
+body.outer .layout > .layout-row > .layout-cell.theme-cell {
+  background-color: #f4faff;
+}
+
+body.outer .layout > .layout-row > .layout-cell .outer-form-container h2 {
+  font-family: inherit !important;
+}
+
+.main-menu-left .brand-image {
+  -webkit-background-size: auto 20px;
+  background-size: auto 20px;
+}
+.main-menu-left .navbar.control-toolbar {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+.main-menu-left .navbar.control-toolbar .toolbar-brand {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  max-width: auto;
+  max-width: 100%;
+  width: 100%;
+  padding: 10px !important;
+  height: auto;
+}
+.main-menu-left .navbar.control-toolbar .toolbar-item {
+  height: auto !important;
+}
+.main-menu-left .layout-mainmenu .navbar ul.mainmenu-items[data-main-menu] {
+  margin-left: 0;
+}
+
+.reveal-left-side-menu .brand-image {
+  background-image: url(../img/bbctop-logo-white.svg);
+  -webkit-background-size: auto 26px;
+  background-size: auto 26px;
+}
+
+.oc-logo, .october-cms-logo-grey {
+  background-image: url(../img/bbctop-logo.svg);
+}
+
+.flex-layout-column.oc-logo-transparent:not(.has-tabs), .layout-cell.oc-logo-transparent, .layout.control-tabs.oc-logo-transparent:not(.has-tabs) {
+  background-image: url(../img/bbctop-logo.svg);
+  -webkit-background-size: auto 48px;
+  background-size: auto 48px;
+}
+
+.layout-mainmenu .navbar, ul.mainmenu-items.mainmenu-submenu-dropdown {
+  background-color: #292838;
+}
+
+.october-tooltip {
+  background-color: #323144;
+}
+
+.component-backend-treeview .treeview-search-control, .component-backend-treeview {
+  background-color: transparent !important;
+}
+
+.field-multilingual.field-multilingual-textarea .ml-btn {
+  width: auto !important;
+}
+
+.field-multilingual .ml-btn {
+  width: auto !important;
+}
+
+.bbc-pinyin-select {
+  font-size: 12px;
+  margin-left: 4px;
+  z-index: 2;
+}
+
+.modal-footer {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background-color: #FFF;
+  padding-top: 20px;
+  margin-top: -20px;
+}
+
+.bbc-pinyin-select-wrap {
+  margin-top: 5px;
+}
+.bbc-pinyin-select-wrap .checkbox {
+  margin-bottom: 2px;
+}
+.bbc-pinyin-select-wrap .checkbox:last-child {
+  margin-bottom: 0;
+}
+
+.nested-form .control-tabs > .tab-pane {
+  padding: 0 !important;
+}
+
+.dropdown.open {
+  z-index: 600;
+}
+
+.dropdown-menu-right .dropdown-container > ul:after {
+  right: 12px;
+  left: auto;
+}
+.dropdown-menu-right .dropdown-container > ul:before {
+  right: 11px;
+  left: auto;
+}
+.dropdown-menu-right .dropdown-container > ul li.first-item a:hover:after, .dropdown-menu-right .dropdown-container > ul li.first-item a:focus:after {
+  right: 12px;
+  left: auto;
+}
+
+.block-select-preview .select-image, .select2-results__option .select-image {
+  max-height: 150px;
+  width: 100%;
+  display: block;
+  margin-bottom: 3px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #ddd;
+  border: 1px solid #ddd;
+}
+
+.select2-results__option .select-image {
+  max-height: 100px;
+}
+
+.block-select-preview .select2-container--default .select2-selection--single {
+  height: auto;
+}
+
+.tab-content > .bbc-padded-pane {
+  padding: 15px 0 10px 0 !important;
+}
+
+.bbc-tab-content .tab-content {
+  background: transparent !important;
+}
+.bbc-tab-content .nav-tabs {
+  background: transparent !important;
+  border-top: 0 !important;
+  padding-top: 0 !important;
+}
+.bbc-tab-content .nav-tabs > li.active a:before {
+  background-color: #f0f4f8 !important;
+}
+.bbc-tab-content .tab-collapse-icon {
+  display: none !important;
+}
+/*# sourceMappingURL=bbctopskin.css.map */

@@ -1,0 +1,90 @@
+// --------------------------------------------------
+// Flexbox LESS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+// The 'flex: 0 0 auto' shorthand
+=flex-fix
+  flex: 0 0 auto
+
+=flex-width($width)
+  flex: 0 0 $width
+  max-width: $width
+// The 'flex: 1 1 auto' shorthand
+=flex-stretch
+  flex: 1 1 auto
+
+// The 'flex: 1' shorthand
+=flex-stretch-constrain
+  flex: 1
+
+// Flex Flow Direction Column
+// - applies to: flex containers
+=flex-direction-column
+  flex-direction: column
+
+// Flex Flow Direction Row
+// - applies to: flex containers
+=flex-direction-row
+  flex-direction: row
+
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+=flex-wrap($wrap: nowrap)
+  flex-wrap: $wrap
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+=flex-flow($flow)
+  flex-flow: $flow
+
+// Display Order
+// - applies to: flex items
+// <integer>
+=flex-order($order: 0)
+  order: $order
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+=flex-grow($grow: 0)
+  flex-grow: $grow
+
+// Flex shr
+// - applies to: flex itemsink factor
+// <number>
+=flex-shrink($shrink: 1)
+  flex-shrink: $shrink
+
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex itemsnitial main size of the flex item
+// <width>
+=flex-basis($width: auto)
+  flex-basis: $width
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around
+=justify-content($justify: flex-start)
+  justify-content: $justify
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch
+=align-content($align: stretch)
+  align-content: $align
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+=align-items($align: stretch)
+  align-items: $align
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch
+=align-self($align: auto)
+  align-self: $align

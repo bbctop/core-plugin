@@ -1,0 +1,20 @@
+<?php if ($this->previewMode): ?>
+    <div class="form-control"><i class="<?= e($value) ?>"></i> <?= e($value) ?></div>
+<?php else: ?>
+<div class="field-recordfinder field-iconfont size-input-text">
+  <div class="field-iconfont-icon">
+    <i class="<?= e($value) ?>"></i>
+  </div>
+  <input
+  data-control="iconfont"
+  id="<?=$this->getId()?>"
+  data-icon-pack="<?= e(json_encode($pack)) ?>"
+  name="<?=$name?>"
+  value="<?= e($value) ?>"
+  type="text"
+  class="form-control">
+  <button class="btn btn-default find-record" data-toggle="modal" type="button">
+    <i class="icon-th-list"></i>
+  </button>
+</div>
+<?php endif ?>

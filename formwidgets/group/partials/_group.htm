@@ -1,0 +1,16 @@
+<div class="bbc-group  bbc-group-<?=$group_type?>" id="<?=  $this->formField->getId() ?>">
+  <?php if(!empty($collapse_title) && $group_type == 'collapse'): ?> 
+  <div class="bbc-group-header d-flex align-items-center">
+  <h3 class="bbc-group-title"><a data-control="collapse" 
+      href="#<?= $this->formField->getId('collapse') ?>"
+      <?php if($is_collapsed == true): ?>class="collapsed"<?php endif ?>>
+    <i class="icon-angle-down"></i><?= e($collapse_title) ?></a>
+    </h3>
+  </div>
+  <?php endif ?>
+  <div class="bbc-group-panel <?php if(!empty($collapse_title) && $is_collapsed == true && $group_type == 'collapse'): ?>collapse<?php endif ?>" 
+    id="<?=  $this->formField->getId('collapse') ?>"
+  >
+    <div class="bbc-group-body clearfix">
+      <div>
+

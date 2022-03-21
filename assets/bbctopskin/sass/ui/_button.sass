@@ -1,0 +1,544 @@
+// Base styles
+// --------------------------------------------------
+
+.btn
+  display: inline-block
+  margin-bottom: 0
+
+  // For input.btn
+  font-weight: $btn-font-weight
+  text-align: center
+  vertical-align: middle
+  cursor: pointer
+  background-image: none
+
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent
+  white-space: nowrap
+
+  +button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base)
+  +user-select(none)
+
+  &.btn-default-action
+    font-weight: 500
+
+  &,
+  &:active,
+  &.active
+    &:focus
+      +tab-focus
+
+  &:hover,
+  &:focus
+    color: $btn-default-color
+    text-decoration: none
+
+  &:active,
+  &.active
+    outline: 0
+    background-image: none
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] &
+    cursor: not-allowed
+    pointer-events: none
+
+    // Future-proof disabling of clicks
+    opacity: .5
+    box-shadow: none
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-default
+  +button-variant($btn-default-color, $btn-default-bg, $btn-default-border, $btn-primary-bg, $btn-primary-bg)
+
+.btn-primary
+  +button-variant($btn-primary-color, lighten($btn-primary-bg, 5%), $btn-primary-border, $btn-primary-bg, $btn-primary-bg)
+
+  font-weight: 500
+
+.btn-secondary
+  +button-variant(#000, lighten($btn-secondary-bg, 5%), $btn-secondary-border, $btn-secondary-bg, $btn-secondary-bg)
+
+  color: $btn-secondary-color
+
+// Success appears as green
+.btn-success
+  +button-variant($btn-success-color, $btn-default-bg, $btn-success-border, $btn-success-bg, $btn-success-bg)
+
+// Info appears as blue-green
+.btn-info
+  +button-variant($btn-info-color, $btn-default-bg, $btn-info-border, $btn-info-bg, $btn-info-bg)
+
+// Warning appears as orange
+.btn-warning
+  +button-variant($btn-warning-color, $btn-default-bg, $btn-warning-border, $btn-warning-bg, $btn-warning-bg)
+
+// Danger and error appear as red
+.btn-danger
+  +button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border, darken($btn-danger-bg, 10%), $btn-danger-bg)
+
+// Outline buttons
+// --------------------------------------------------
+
+.btn-outline-default
+  +button-outline-variant($btn-default-bg)
+
+.btn-outline-primary
+  +button-outline-variant($btn-primary-bg)
+
+.btn-outline-secondary
+  +button-outline-variant(darken($btn-secondary-bg, 15%))
+
+.btn-outline-info
+  +button-outline-variant($btn-info-bg)
+
+.btn-outline-success
+  +button-outline-variant($btn-success-bg)
+
+.btn-outline-warning
+  +button-outline-variant($btn-warning-bg)
+
+.btn-outline-danger
+  +button-outline-variant($btn-danger-bg)
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.btn-link
+  color: $link-color
+  font-weight: normal
+  font-size: $font-size-base
+  cursor: pointer
+  border-radius: 0
+  text-decoration: underline
+
+  &.text-muted
+    color: $text-muted
+
+  &,
+  &:active,
+  &[disabled],
+  fieldset[disabled] &
+    background-color: transparent
+    box-shadow: none
+
+  &,
+  &:hover,
+  &:focus,
+  &:active
+    border-color: transparent
+
+  &:hover,
+  &:focus
+    color: $link-hover-color
+    text-decoration: underline
+    background-color: transparent
+
+  &[disabled],
+  fieldset[disabled] &
+    &:hover,
+    &:focus
+      color: $btn-link-disabled-color
+      text-decoration: none
+
+.btn.btn-link
+  font-size: $font-size-base
+
+.button-separator
+  color: $text-muted
+  display: inline-block
+  margin: 0 10px
+  padding-top: $padding-base-vertical
+  font-size: $font-size-base
+
+  + .btn-link
+    padding-left: 10px
+    margin-left: -10px
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-lg
+  // line-height: ensure even-numbered height of button next to large input
+  +button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
+
+.btn-sm
+  // line-height: ensure proper height of button next to small input
+  +button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small)
+
+.btn-xs
+  +button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small)
+
+// Block button
+// --------------------------------------------------
+
+.btn.btn-block
+  text-align: center
+  display: block
+  width: 100%
+  padding-left: 0
+  padding-right: 0
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block
+  margin-top: 5px
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+  &.btn-block
+    width: 100%
+
+//
+// Button groups
+// --------------------------------------------------
+
+// Make the div behave like a button
+.btn-group,
+.btn-group-vertical
+  position: relative
+  display: inline-block
+  vertical-align: middle
+
+  // match .btn alignment given font-size hack above
+  > .btn
+    position: relative
+    float: left
+
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.active
+      z-index: $zindex-button
+
+    &:focus
+      // Remove focus outline when dropdown JS adds it after closing the menu
+      outline: none
+
+// Prevent double borders when buttons are next to each other
+.btn-group
+  .btn + .btn,
+  .btn + .btn-group,
+  .btn-group + .btn,
+  .btn-group + .btn-group
+    margin-left: -1px
+
+// Optional: Group multiple button groups together for a toolbar
+.btn-toolbar
+  margin-left: -5px
+
+  // Offset the first child's margin
+  @extend .clearfix
+
+  .btn-group,
+  .input-group
+    float: left
+
+  > .btn,
+  > .btn-group,
+  > .input-group
+    margin-left: 5px
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle)
+  border-radius: 0
+
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.btn-group > .btn:first-child
+  margin-left: 0
+
+  &:not(:last-child):not(.dropdown-toggle)
+    +border-right-radius(0)
+
+// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child)
+  +border-left-radius(0)
+
+// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
+.btn-group > .btn-group
+  float: left
+
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn
+  border-radius: 0
+
+.btn-group > .btn-group:first-child
+  > .btn:last-child,
+  > .dropdown-toggle
+    +border-right-radius(0)
+
+.btn-group > .btn-group:last-child > .btn:first-child
+  +border-left-radius(0)
+
+// On active and open, don't show outline
+.btn-group .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle
+  outline: 0
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.btn-group-xs > .btn
+  @extend .btn-xs
+
+.btn-group-sm > .btn
+  @extend .btn-sm
+
+.btn-group-lg > .btn
+  @extend .btn-lg
+
+// Split button dropdowns
+// ----------------------
+
+// Give the line between buttons some depth
+.btn-group > .btn + .dropdown-toggle
+  padding-left: 8px
+  padding-right: 8px
+
+.btn-group > .btn-lg + .dropdown-toggle
+  padding-left: 12px
+  padding-right: 12px
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.btn-group.open .dropdown-toggle
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+
+  // Show no shadow for `.btn-link` since it has no other button styles.
+  &.btn-link
+    box-shadow: none
+
+// Reposition the caret
+.btn .caret
+  margin-left: 0
+
+// Carets in other button sizes
+.btn-lg .caret
+  border-width: $caret-width-large $caret-width-large 0
+  border-bottom-width: 0
+
+// Upside down carets for .dropup
+.dropup .btn-lg .caret
+  border-width: 0 $caret-width-large $caret-width-large
+
+// Vertical button groups
+// ----------------------
+
+.btn-group-vertical
+  > .btn,
+  > .btn-group,
+  > .btn-group > .btn
+    display: block
+    float: none
+    width: 100%
+    max-width: 100%
+
+  // Clear floats so dropdown menus can be properly placed
+  > .btn-group
+    @extend .clearfix
+
+    > .btn
+      float: none
+
+  > .btn + .btn,
+  > .btn + .btn-group,
+  > .btn-group + .btn,
+  > .btn-group + .btn-group
+    margin-top: -1px
+    margin-left: 0
+
+.btn-group-vertical > .btn
+  &:not(:first-child):not(:last-child)
+    border-radius: 0
+
+  &:first-child:not(:last-child)
+    border-top-right-radius: $border-radius-base
+
+    +border-bottom-radius(0)
+
+  &:last-child:not(:first-child)
+    border-bottom-left-radius: $border-radius-base
+
+    +border-top-radius(0)
+
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn
+  border-radius: 0
+
+.btn-group-vertical > .btn-group:first-child:not(:last-child)
+  > .btn:last-child,
+  > .dropdown-toggle
+    +border-bottom-radius(0)
+
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child
+  +border-top-radius(0)
+
+// Justified button groups
+// ----------------------
+
+.btn-group-justified
+  display: table
+  width: 100%
+  table-layout: fixed
+  border-collapse: separate
+
+  > .btn,
+  > .btn-group
+    float: none
+    display: table-cell
+    width: 1%
+
+  > .btn-group .btn
+    width: 100%
+
+// Checkbox and radio options
+[data-toggle="buttons"] > .btn > input[type="radio"],
+[data-toggle="buttons"] > .btn > input[type="checkbox"]
+  display: none
+
+
+//
+// Buttons
+// --------------------------------------------------
+
+.btn
+  font-size: $font-size-base
+  text-align: left
+  outline: none !important
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,.15)
+
+  &[disabled]
+    color: rgba(255, 255, 255, 0.6)
+
+  &.active,
+  &:active
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.3)
+
+//
+// Buttons with icons
+//
+
+.btn
+  i[class^="icon-"],
+  i[class*=" icon-"]
+    opacity: .6
+
+  &.on,
+  &:hover,
+  &:focus,
+  &.focus
+    i[class^="icon-"],
+    i[class*=" icon-"]
+      opacity: 1
+
+  &[class^="oc-icon-"],
+  &[class*=" oc-icon-"]
+    &:before
+      font-size: 14px
+      line-height: 14px
+      position: relative
+      opacity: .6
+
+    &.on,
+    &:hover,
+    &:focus,
+    &.focus
+      &:before
+        opacity: 1
+
+.btn-secondary
+  box-shadow: unquote("inset 0 -2px 0 rgba(0,0,0,.1)")
+
+  &[disabled]
+    color: rgba(0, 0, 0, 0.6)
+
+  &.active,
+  &:active
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2)
+
+.btn-link
+  box-shadow: none !important
+  text-shadow: none !important
+
+.btn-group
+  .btn
+    border-right: 1px solid rgba(0, 0, 0, 0.09)
+    margin-left: 0 !important
+
+    &:last-child, &.last
+      border-right: none
+
+    &.last
+      +border-right-radius($border-radius-base !important)
+
+  > .dropdown
+    float: left
+
+    &:not(:last-child, .last) > .btn
+      border-right: 1px solid rgba(0, 0, 0, 0.09)
+
+      +border-right-radius(0 !important)
+
+    &:not(:first-child) > .btn
+      +border-left-radius(0 !important)
+
+    &.last
+      .btn
+        border-right: none
+
+.btn, .btn-group
+  &.offset-right
+    margin-right: 10px
+
+.btn-icon
+  display: inline-block
+  height: 36px
+  font-size: 21px
+  background: transparent
+  border: none
+  outline: none
+
+  &:before
+    display: block
+    color: $color-icon-btn-default
+
+  &:hover:before
+    color: $link-color
+
+  &.danger:hover:before
+    color: $color-btn-danger
+
+  &.pull-right:before
+    margin-right: 0
+
+  &.margin-left
+    margin-left: 5px
+
+  &.small
+    font-size: 17px
+    height: 17px
+    line-height: 15px
+
+  &.larger
+    font-size: 21px
+    height: 21px
+    line-height: 17px
+
+.btn-text
+  font-size: $font-size-base
+  padding: 8px 0
+  vertical-align: middle
+  display: inline-block
+  color: $btn-default-bg
+
+  a
+    color: $btn-default-bg
+    text-decoration: underline
+
+    &:hover
+      color: $link-color

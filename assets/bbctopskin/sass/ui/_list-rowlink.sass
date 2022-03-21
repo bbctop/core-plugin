@@ -1,0 +1,17 @@
+// Rowlink.scss
+// CSS for rowlink plugin
+// ----------------------
+
+tr.rowlink:not(.nolink) td
+  cursor: pointer
+
+  &.nolink
+    cursor: auto
+
+.table tbody tr.rowlink:hover td
+  background-color: $table-bg-hover
+
+a.rowlink
+  color: inherit
+  font: inherit
+  text-decoration: inherit

@@ -1,0 +1,54 @@
+.popup-iconfont--list {
+  padding-bottom: 40px;
+}
+.popup-iconfont--list .loading-indicator-container {
+  background-color: #fff;
+}
+
+.field-iconfont .form-control {
+  padding-left: 36px;
+}
+.field-iconfont-icon {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 36px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.iconfont--list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.iconfont--list a {
+  display: block;
+  font-size: 32px;
+  width: 2em;
+  height: 2em;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  line-height: 2em;
+  text-align: center;
+  text-decoration: none;
+  color: #444;
+  -webkit-transition: color 0.35s, background-color 0.35s;
+  -o-transition: color 0.35s, background-color 0.35s;
+  transition: color 0.35s, background-color 0.35s;
+}
+.iconfont--list a:hover {
+  background-color: #6bc48d;
+  color: #FFF;
+}
+/*# sourceMappingURL=bbc.iconfont.css.map */

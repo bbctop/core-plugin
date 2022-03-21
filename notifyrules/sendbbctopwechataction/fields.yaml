@@ -1,0 +1,9 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+    mail_template:
+        label: 邮件模板
+        type: dropdown
+        placeholder: Select template

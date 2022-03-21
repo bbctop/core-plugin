@@ -1,0 +1,17 @@
+<?php if ($this->previewMode): ?>
+    <div class="form-control"><?= e($value) ?></div>
+<?php else: ?>
+
+  <input
+  data-control="range"
+  name="<?= $field->getName() ?>"
+  id="<?= $field->getId() ?>"
+  value="<?= e($value) ?>"
+  min="<?= $min ?>"
+  max="<?= $max ?>"
+  grid="<?= $grid ?>"
+  step="<?= $step ?>"
+  type="range"
+  class="bbc-range">
+
+<?php endif ?>

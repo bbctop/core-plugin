@@ -1,0 +1,6 @@
+plugin:
+    name: 'bbctop.core::lang.plugin.name'
+    description: 'bbctop.core::lang.plugin.description'
+    author: Bbctop
+    icon: oc-icon-cogs
+    homepage: ''

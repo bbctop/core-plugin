@@ -1,0 +1,72 @@
+.bbc-group {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.bbc-group-collapse {
+  border: 1px solid #CFD7E1;
+}
+.bbc-group-collapse .bbc-group-body {
+  padding: 15px 20px 0;
+}
+.bbc-group-collapse .bbc-group-body > div:last-child {
+  display: none;
+}
+.bbc-group-collapse .bbc-group-panel {
+  background-color: #fff;
+}
+.bbc-group .collapse {
+  display: none;
+}
+.bbc-group-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #CFD7E1;
+  background-color: #fafbfd;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.bbc-group-header a {
+  text-decoration: none;
+  display: block;
+  color: #2A3E51;
+}
+.bbc-group-header a > i {
+  display: inline-block;
+  margin-right: 4px;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  -o-transition: transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+  color: #6a6cf7;
+}
+.bbc-group-header a.collapsed > i {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.bbc-group-panel {
+  -webkit-border-bottom-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.bbc-group-panel:first-child {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.bbc-group-title {
+  font-size: 14px;
+  margin: 0;
+}
+.bbc-group-noframe > .bbc-group-panel > .bbc-group-body {
+  margin-top: -20px;
+  position: relative;
+  padding: 0;
+  top: 20px;
+}
+.bbc-group-noframe > .bbc-group-panel {
+  background-color: transparent;
+}
+/*# sourceMappingURL=bbc.group.css.map */

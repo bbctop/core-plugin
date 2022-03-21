@@ -1,0 +1,28 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+    mail_template:
+        label: 邮件模板
+        type: dropdown
+        placeholder: Select template
+    send_to_mode:
+        label: 发给
+        type: radio
+        span: left
+
+    send_to_custom:
+        cssClass: radio-align
+        trigger:
+            action: show
+            field: send_to_mode
+            condition: value[custom]
+    sms_un:
+        label: SMS账号
+        type: text
+        span: left
+    sms_pwd:
+        label: SMS密码
+        type: text
+        span: left

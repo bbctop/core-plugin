@@ -1,0 +1,28 @@
+.split {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  .split-container {
+    width: 50%;
+    border-top: 1px solid #e4ebef; }
+    .split-container .control-list table.table.data {
+      margin-top: -1px; }
+
+.gutter {
+  background-color: #eee;
+  background-repeat: no-repeat;
+  background-position: 50%; }
+  .gutter.gutter-horizontal {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
+    cursor: col-resize; }
+#split-left table.table.data thead tr th {
+  background-color: #f0f4f8;
+  z-index: 9;
+}
+.form-buttons > div > * {
+  vertical-align: middle;
+}
