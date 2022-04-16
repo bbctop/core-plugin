@@ -201,4 +201,9 @@ body.outer .layout > .layout-row > .layout-cell .outer-form-container h2 {
 .bbc-tab-content .tab-collapse-icon {
   display: none !important;
 }
+
+.layout-mainmenu .navbar ul.mainmenu-items[data-main-menu]>li.mainmenu-item .nav-icon .svg-icon {
+  height: 32px;
+  width: 32px;
+}
 /*# sourceMappingURL=bbctopskin.css.map */

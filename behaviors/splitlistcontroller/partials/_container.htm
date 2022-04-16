@@ -9,7 +9,7 @@
     <?php if(!empty($list->config->splitLayout)): ?>
     <div class="split">
         <div id="split-left" class="split-container control-scrollbar" data-control="scrollbar"><?= $list->render() ?></div>
-        <div id="split-right" class="split-container"><div class="layout control-tabs oc-logo-transparent"></div></div>
+        <div id="split-right" class="split-container control-scrollbar" data-control="scrollbar"><div class="layout control-tabs oc-logo-transparent"></div></div>
     </div>
     <?php else: ?>
     <?= $list->render() ?>

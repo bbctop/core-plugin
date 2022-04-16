@@ -1,10 +1,11 @@
 <?php namespace Bbctop\Core;
 
 use System\Classes\PluginBase;
-use Backend\Classes\Skin as AbstractSkin;
+// use Backend\Classes\Skin as AbstractSkin;
 use Bbctop\Core\Listener\PluginEventSubscriber;
 use Bbctop\Core\Skin\BbctopSkin;
-use Backend\Models\User;
+// use Backend\Models\User;
+use Bbctop\Core\Console\BbctopPluginInstall;
 use Backend\Classes\WidgetBase;
 use Event;
 use Config;
@@ -29,6 +30,7 @@ class Plugin extends PluginBase
         Backend\Classes\Controller::extend(function($controller) {
             array_push($controller->implement,'Bbctop\Core\Behaviors\BbctopController');
         });
+        $this->setBbctopIcon();
         $this->registerValidator();
     }
 
@@ -125,5 +127,38 @@ class Plugin extends PluginBase
             $langPath = plugins_path($nsPath . '/lang');
             return new \October\Rain\Translation\FileLoader($app['files'], $langPath);
         });
+    }
+
+    public function setBbctopIcon () {
+        Event::listen('backend.menu.extendItems', function ($manager) {
+            $items = $manager->listMainMenuItems();
+
+            $path = 'plugins/bbctop/core/assets/icon/';
+
+            if (isset($items['OCTOBER.BACKEND.DASHBOARD'])) {
+                $items['OCTOBER.BACKEND.DASHBOARD']->order = 1;
+                $items['OCTOBER.BACKEND.DASHBOARD']->iconSvg = $path.'dashboard.png';
+            }
+
+            if (isset($items['OCTOBER.MEDIA.MEDIA'])) {
+                $items['OCTOBER.MEDIA.MEDIA']->iconSvg = $path.'manage.png';
+            }
+
+            if (isset($items['OCTOBER.EDITOR.EDITOR'])) {
+                $items['OCTOBER.EDITOR.EDITOR']->iconSvg = $path.'code.png';
+            }
+
+            if (isset($items['RAINLAB.PAGES.PAGES'])) {
+                $items['RAINLAB.PAGES.PAGES']->iconSvg = $path.'pages.png';
+            }
+
+            // if (isset($items['OCTOBER.SYSTEM.SYSTEM'])) {
+            //     $items['OCTOBER.SYSTEM.SYSTEM']->iconSvg = $path.'settings.png';
+            // }
+        });
+    }
+    public function register()
+    {
+        $this->registerConsoleCommand('bbctop-plugin.install', BbctopPluginInstall::class);
     }
 }

@@ -61,10 +61,8 @@
   margin: 0;
 }
 .bbc-group-noframe > .bbc-group-panel > .bbc-group-body {
-  margin-top: -20px;
   position: relative;
   padding: 0;
-  top: 20px;
 }
 .bbc-group-noframe > .bbc-group-panel {
   background-color: transparent;
