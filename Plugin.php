@@ -26,6 +26,11 @@ class Plugin extends PluginBase
     }
 
     public function boot() {
+        Backend\Controllers\Auth::extend(function($controller){
+            $controller->addDynamicMethod('test',function() use ($controller){
+                dump('test');
+            });
+        });
         $this->setBbctopSkin();
         Backend\Classes\Controller::extend(function($controller) {
             array_push($controller->implement,'Bbctop\Core\Behaviors\BbctopController');
@@ -160,5 +165,6 @@ class Plugin extends PluginBase
     public function register()
     {
         $this->registerConsoleCommand('bbctop-plugin.install', BbctopPluginInstall::class);
+        $this->registerConsoleCommand('bbctop-theme.install', BbctopThemeInstall::class);
     }
 }
