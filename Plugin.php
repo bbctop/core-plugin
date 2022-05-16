@@ -6,11 +6,13 @@ use Bbctop\Core\Listener\PluginEventSubscriber;
 use Bbctop\Core\Skin\BbctopSkin;
 // use Backend\Models\User;
 use Bbctop\Core\Console\BbctopPluginInstall;
+use Bbctop\Core\Console\BbctopThemeInstall;
 use Backend\Classes\WidgetBase;
 use Event;
 use Config;
 use Backend;
 use Validator;
+use Markdown;
 
 
 class Plugin extends PluginBase
@@ -26,11 +28,6 @@ class Plugin extends PluginBase
     }
 
     public function boot() {
-        Backend\Controllers\Auth::extend(function($controller){
-            $controller->addDynamicMethod('test',function() use ($controller){
-                dump('test');
-            });
-        });
         $this->setBbctopSkin();
         Backend\Classes\Controller::extend(function($controller) {
             array_push($controller->implement,'Bbctop\Core\Behaviors\BbctopController');
@@ -42,9 +39,9 @@ class Plugin extends PluginBase
     public function registerValidator()
     {
         Validator::extend('china_phone',\Bbctop\Core\Validation\ChinaPhone::class);
-        Validator::extend('china_mobile',\Bbctop\ConversionTools\Validation\ChinaMobile::class);
+        Validator::extend('china_mobile',\Bbctop\Core\Validation\ChinaMobile::class);
     }
-    
+
     public function registerMarkupTags()
     {
         return [
@@ -53,22 +50,22 @@ class Plugin extends PluginBase
                     'bbctop_copyright' => ['Bbctop\Core\Classes\GlobalFooter','bbctop_copyright'],
                     'copyright' => ['Bbctop\Core\Classes\GlobalFooter','copyright'],
                     'icp' => ['Bbctop\Core\Classes\GlobalFooter','icp'],
-                    'bbc_dump' => function ($data) {
+                ],
+                'filters' => [
+                    'mdl' => function($str) {
+                        return Markdown::parseLine($str);
+                    },
+                    'json_decode' => function ($json) {
+                        return json_decode($json, true);
+                    },
+                    'dd' => function ($data) {
                         dump($data);
                         return '';
                     },
-                    'brackets2span' => function ($str,$tag='span',$class='') {
-                        if($str) {
-                            return str_replace('[','<'.$tag.(!empty($class)?(' class="'.$class.'"'):'').'>',str_replace(']','</'.$tag.'>',$str));
-                          }else{
-                            return '';
-                          }
-                        return '';
-                    }
                 ]
             ];
     }
- 
+
     public function registerFormWidgets()
     {
         return [
@@ -99,16 +96,6 @@ class Plugin extends PluginBase
     {
     }
 
-    public function registerEditorBlocks()
-    {
-        return [
-            'raw' => [
-                'settings' => [
-                    'class' => 'RawTool'
-                ],
-            ],
-        ];
-    }
 
     // 设置覆盖源layouts,widgets,plugin的视图路径
     public function setBbctopSkin () {
@@ -156,10 +143,6 @@ class Plugin extends PluginBase
             if (isset($items['RAINLAB.PAGES.PAGES'])) {
                 $items['RAINLAB.PAGES.PAGES']->iconSvg = $path.'pages.png';
             }
-
-            // if (isset($items['OCTOBER.SYSTEM.SYSTEM'])) {
-            //     $items['OCTOBER.SYSTEM.SYSTEM']->iconSvg = $path.'settings.png';
-            // }
         });
     }
     public function register()

@@ -18,11 +18,7 @@ fields:
             action: show
             field: send_to_mode
             condition: value[custom]
-    sms_un:
-        label: SMS账号
-        type: text
-        span: left
-    sms_pwd:
-        label: SMS密码
-        type: text
-        span: left
+    providers:
+        label:  短信平台供应商
+        type: dropdown
+        options: \Bbctop\Core\Notifyrules\SendBbctopSmsAction::getProvidersOptions

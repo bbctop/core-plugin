@@ -28,7 +28,13 @@ class SendBbctopSmsAction extends ActionBase
             'icon'        => 'icon-envelope'
         ];
     }
+    /**
+     * 返回可用的短信供应商
+     */
+    public static function getProvidersOptions(){
 
+        return ['Bbctop.Core.Notifyrules.BbctopSms' => 'BBCTOP短信平台'];
+    }
     /**
      * Triggers this action.
      * @param array $params
@@ -44,43 +50,20 @@ class SendBbctopSmsAction extends ActionBase
         $recipient = $this->getRecipientAddress($params);
         $mailTemplate = new MailTemplate;
         $template=$mailTemplate->findOrMakeTemplate($template);
-        
-        $notifyPars = array(
-            'un' => $this->host->sms_un,
-            'pwd' => $this->host->sms_pwd,
-            'msg' => MailManager::instance()->renderTextTemplate($template,$params),
-            'mobile'=> $recipient,
-        );
 
-        $result = array(
-            '1' => '发送成功',
-            '-1' => '用户名或密码为空',
-            '-2' => '手机号不正确',
-            '-3' => 'msg参数为空',
-            '-4' => '短信字数超长',
-            '-5' => '群发手机号码个数超限（群发一个包最多300个号码）',
-            '-6' => '黑名单号码',
-            '-7' => '请求参数为空',
-            '-8' => '短信内容含有屏蔽词',
-            '-9' => '短信账户不存在',
-            '-10' => '短信账户已经停用',
-            '-11' => '短信账户余额不足',
-            '-12' => '密码错误',
-            '-16' => 'IP服务器鉴权错误',
-            '-17' => '单发手机号码个数超限（单发一次只能提交1个号码',
-            '-21' => '提交速度超限',
-            '-22' => '手机号达到当天发送限制',
-            '-99' => '系统异常',
-        );
-        $url = 'http://si.800617.com:4400/sms/SendSMS.aspx?' . http_build_query($notifyPars);
-        $xmls = trim(@file_get_contents($url));
-        $xml =simplexml_load_string($xmls);
-        $xmljson= json_encode($xml);
-        $notifyResult=json_decode($xmljson,true);
 
-        if ($notifyResult['Result']!='1') {
-            throw new ApplicationException($result[$notifyResult['Result']]);
+        try {
+            // 如果尚未实现，则实现行为
+            if (!$this->isClassExtendedWith($this->host->providers)) {
+                $this->implement[] = $this->host->providers;
+            }
+            $this->sendMessages(MailManager::instance()->renderTextTemplate($template,$params),$recipient);
         }
+        catch (Exception $ex) {
+            throw new ApplicationException($ex->getMessage());
+        }
+
+
 
     }
     protected function getRecipientAddress($params)
