@@ -46,3 +46,33 @@ JSON转换数组
 ```
 {{ string|json_decode }}
 ```
+
+# 新增表单组件
+
+## Group 组件
+
+```yaml
+_group:
+  type: group
+  label: 标题
+  collapse_title: 可收起标题
+  is_collapsed: false
+  span: auto
+name:
+  type: text
+  lable: 名称
+  ...
+_group_end:
+  type: groupend
+```
+
+## Range 区间组件
+
+```yaml
+range:
+  label: 滑动条
+  type: range
+  min: 1
+  max: 50
+  step: 1
+```

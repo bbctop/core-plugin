@@ -67,4 +67,21 @@
 .bbc-group-noframe > .bbc-group-panel {
   background-color: transparent;
 }
+
+.bbc-nestedform-collapse {
+  background-color: #fff;
+  padding-bottom: 0 !important;
+}
+.bbc-nestedform-collapse .bbc-group-body > div:last-child {
+  display: block;
+}
+.bbc-nestedform-collapse .control-tabs {
+  padding: 10px 0 0;
+}
+.bbc-nestedform-collapse .control-tabs .tab-pane {
+  padding: 15px 15px 10px 15px;
+}
+.bbc-nestedform-collapse .nav-tabs > li.active a:before {
+  background-color: #FFF !important;
+}
 /*# sourceMappingURL=bbc.group.css.map */

@@ -101,7 +101,11 @@ class Plugin extends PluginBase
     public function setBbctopSkin () {
 
         Event::subscribe(new PluginEventSubscriber());
+        $backend = Config::get('bbctop.core::backend');
         Config::set('backend.skin', BbctopSkin::class);
+        Config::set('backend.brand',$backend['brand']);
+        Config::set('backend.timezone',$backend['timezone']);
+        Config::set('backend.default_avatar',$backend['default_avatar']);
 
         WidgetBase::extend(function (WidgetBase $widget) {
             $origViewPath = $widget->guessViewPath();
